@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pixeel</title>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+  integrity="sha512-zN6V+M4PvjpcwG0hHtWcZwzBPaX/poQzZy07x36qZsXqvFjVbghU3q3pTRoStFJb8UJvZrJZy9XwE02rXKz+DQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <style>
+    /* Reset i styl ogólny */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+body {
+  height: 100vh;
+  background: #0a0a0a;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+/* Canvas particles.js */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  top: 0;
+  left: 0;
+}
+
+/* Karta profilu */
+.profile-card {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border-radius: 16px;
+  padding: 40px 60px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.profile-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.profile-card h1 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.profile-card p {
+  font-size: 16px;
+  opacity: 0.8;
+  margin-bottom: 30px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.links a {
+  color: #7c8cff;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 18px;
+}
+
+.links a:hover {
+  color: #9eaaff;
+}
+
+.footer {
+  position: absolute;
+  bottom: 20px;
+  right: 40px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.links a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #7c8cff;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 18px;
+}
+
+.links a i {
+  font-size: 20px;
+}
+
+.links a:hover {
+  color: #9eaaff;
+  transform: scale(1.05);
+}
+
+.links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #7c8cff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 18px;
+}
+
+.links a i {
+  font-size: 22px;
+}
+
+.links a:hover {
+  color: #9eaaff;
+  transform: scale(1.05);
+}
+
+.link-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+  animation: fadeIn 1s ease forwards;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.link-item:nth-child(1) { animation-delay: 0.2s; }
+.link-item:nth-child(2) { animation-delay: 0.4s; }
+.link-item:nth-child(3) { animation-delay: 0.6s; }
+.link-item:nth-child(4) { animation-delay: 0.8s; }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.label {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  padding: 6px 14px;
+  border-radius: 10px;
+  color: #e0e0ff;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+  transition: 0.3s ease;
+}
+
+.label:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
+  color: #fff;
+}
+
+.link-item a {
+  color: #7c8cff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.link-item a:hover {
+  color: #9eaaff;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-top: 10px;
+  animation: fadeInLinks 1s ease forwards;
+}
+
+@keyframes fadeInLinks {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.label {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 10px 40px;
+  border-radius: 12px;
+  color: #e0e0ff;
+  font-weight: 500;
+  font-size: 18px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.label:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  transform: scale(1.08);
+  box-shadow: 0 0 25px rgba(140, 150, 255, 0.4);
+}
+
+  </style>
+</head>
+<body>
+  <!-- Tło particles.js -->
+  <div id="particles-js"></div>
+
+  <!-- Karta profilu -->
+
+  <div class="profile-card">
+    <img src="https://cdn.discordapp.com/attachments/1407134795334418454/1429751470021935235/fb08284a50d720a6babd67c741d278b4.jpg?ex=68fc8d51&is=68fb3bd1&hm=fa0a418129995cf2d6a2d693dd03db9a1456282e5e213660a7e568b1b65b625b&" alt="avatar">
+   <h1 class="typewriter">Pixeel</h1>
+    <p>(pixeel)</p>
+
+<div class="links">
+  <a href="https://instagram.com/_pixeel011/" target="_blank" class="label">Instagram</a>
+  <a href="https://discord.com/users/1206101911153938443" target="_blank" class="label">Discord</a>
+  <a href="https://twitch.tv/pixeelbot" target="_blank" class="label">Twitch</a>
+  <a href="https://x.com/PixeelBot" target="_blank" class="label">X</a>
+</div>
+
+
+
+
+
+  </div>
+
+  <div class="footer">
+    <a href="https://pixeel.pl">pixeel.pl</a><br>
+    Powered by Pixeel
+  </div>
+
+  <script>
+    /* Konfiguracja tła particles.js */
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#ffffff" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.3, "random": false },
+        "size": { "value": 2 },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.2,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 2,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out"
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "repulse" },
+          "onclick": { "enable": false }
+        },
+        "modes": { "repulse": { "distance": 100, "duration": 0.4 } }
+      },
+      "retina_detect": true
+    });
+  </script>
+
+</body>
+</html>
